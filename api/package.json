@@ -1,7 +1,7 @@
 {
   "name": "api-socialmedia",
   "version": "1.0.0",
-  "description": "",
+  "description": "Social Media Backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
