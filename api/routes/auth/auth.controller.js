@@ -15,7 +15,7 @@ const httpRegisterUser = async (req, res) => {
     const user = await newUser.save();
     res.status(200).json(user);
   } catch (error) {
-    console.log(error);
+    res.status(500).json("error creating user");
   }
 };
 
@@ -35,7 +35,7 @@ const httpSignInUser = async (req, res) => {
     }
     res.status(200).json(user);
   } catch (error) {
-    console.log(error);
+    res.status(500).json(error);
   }
 };
 
