@@ -1,0 +1,80 @@
+.post {
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 15px -9px rgba(0, 0, 0, 0.59);
+  box-shadow: 0px 0px 15px -9px rgba(0, 0, 0, 0.59);
+  margin: 30px 0px;
+}
+
+.postContainer {
+  padding: 10px;
+}
+
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postTopLeft {
+  display: flex;
+  align-items: center;
+}
+.postUserName {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 10px;
+}
+.postDate {
+  font-size: 12px;
+}
+
+.postProfileImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.postMiddle {
+  margin: 20px 0px;
+}
+
+.postImage {
+  margin-top: 20px;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.postBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.postBottomLeft {
+  display: flex;
+  align-items: center;
+}
+.postReaction {
+  width: 24px !important;
+  height: 24px !important;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.postReactionHeart {
+  color: red !important ;
+}
+.postReactionLIike {
+  color: rgb(78, 119, 223) !important;
+}
+
+.postReactionCounter {
+  font-size: 15px;
+}
+
+.postCommentText {
+  cursor: pointer;
+  border-bottom: 1px dotted gray;
+  font-style: 15px;
+}
