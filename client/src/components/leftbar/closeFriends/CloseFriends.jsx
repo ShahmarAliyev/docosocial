@@ -1,4 +1,4 @@
-import React from "react";
+import "./CloseFriends.styles.css";
 
 export default function CloseFriends({ user }) {
   return (
