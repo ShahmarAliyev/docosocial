@@ -41,7 +41,7 @@ export default function Navbar() {
 
         <img
           alt="profile"
-          src="/assets/profile.jpg"
+          src="/assets/profiles/profile.jpg"
           className="profilePictureIcon"
         />
       </div>
