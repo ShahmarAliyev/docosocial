@@ -6,14 +6,15 @@ import Register from "./pages/register/Register";
 
 // import Homepage from "./pages/homePage/HomePage";
 function App() {
+
   return (
     <div>
-      {/* <Profile /> */}
-      {/* <Homepage /> */}
-      {/* <Login /> */}
+     
       <Register />
     </div>
   );
+ 
+
 }
 
 export default App;
