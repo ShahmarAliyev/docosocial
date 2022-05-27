@@ -1,8 +1,14 @@
-import Homepage from "./pages/homePage/HomePage";
+// import Profile from "./pages/profile/Profile";
+
+import Login from "./pages/login/Login";
+
+// import Homepage from "./pages/homePage/HomePage";
 function App() {
   return (
     <div>
-      <Homepage />
+      {/* <Profile /> */}
+      {/* <Homepage /> */}
+      <Login />
     </div>
   );
 }
