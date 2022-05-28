@@ -5,6 +5,8 @@ import Rightbar from "../../components/rightbar/Rightbar";
 import "./Profile.styles.css";
 
 export default function Profile() {
+  const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <>
       <Navbar />
@@ -16,12 +18,12 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 alt="cover"
-                src="assets/cover.jpg"
+                src={PublicFolder + "cover.jpg"}
                 className="profileCoverImage"
               />
               <img
                 alt="profile"
-                src="assets/profiles/profile.jpg"
+                src={PublicFolder + "profiles/profile.jpg"}
                 className="profileProfileImage"
               />
             </div>

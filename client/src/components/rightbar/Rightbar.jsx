@@ -27,6 +27,8 @@ export default function Rightbar({ profile }) {
   };
 
   const ProfileRightbar = () => {
+    const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
     return (
       <>
         <h4 className="rightbarTitle">User information</h4>
@@ -50,7 +52,7 @@ export default function Rightbar({ profile }) {
             return (
               <div className="rightbarFollowing">
                 <img
-                  src={user.profilePicture}
+                  src={PublicFolder + user.profilePicture}
                   alt=""
                   className="rightbarFollowingImg"
                 />
