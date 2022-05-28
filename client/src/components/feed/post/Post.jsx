@@ -2,13 +2,24 @@ import "./Post.styles.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import { Users } from "../../../data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { format } from "timeago.js";
 
 function Post({ post }) {
-  const [like, setLike] = useState(post.like);
+  const [user, setUser] = useState({});
+
+  const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`users/${post.userId}`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, [post.userId]);
 
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1);
@@ -20,35 +31,25 @@ function Post({ post }) {
       <div className="postContainer">
         <div className="postTop">
           <div className="postTopLeft">
-            <img
-              alt="postProfile"
-              className="postProfileImage"
-              src={
-                PublicFolder +
-                Users.filter((user) => {
-                  return user.id === post.userId;
-                })[0].profilePicture
-              }
-            />
-            <span className="postUserName">
-              {
-                Users.filter((user) => {
-                  return user.id === post.userId;
-                })[0].username
-              }
-            </span>
-            <span className="postDate"> {post.date}</span>
+            {user.profilePicture && (
+              <img
+                alt="postProfile"
+                className="postProfileImage"
+                src={PublicFolder + user.profilePicture}
+              />
+            )}
+            <span className="postUserName">{user.username}</span>
+            <span className="postDate">{format(post.createdAt)}</span>
           </div>
-
           <div className="postTopRight">
             <MoreVertIcon className="" />
           </div>
         </div>
 
         <div className="postMiddle">
-          <span className="postText">{post?.desc}</span>
+          <span className="postText">{post.desc}</span>
           <img
-            src={PublicFolder + post.photo}
+            src={PublicFolder + post.img}
             alt="post"
             className="postPicture"
           />

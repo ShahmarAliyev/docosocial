@@ -66,7 +66,7 @@ const httpGetPost = async (req, res) => {
 const httpGetFeed = async (req, res) => {
   let timelinePosts = [];
   try {
-    const currentUser = await User.findById(req.body.userId);
+    const currentUser = await User.findById(req.params.userId);
     const currentUserPosts = await Post.find({ userId: currentUser._id });
     const followingUsersPost = await Promise.all(
       currentUser.followings.map((friendId) => {
