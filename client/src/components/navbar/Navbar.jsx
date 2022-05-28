@@ -4,11 +4,15 @@ import Person from "@mui/icons-material/Person";
 import Chat from "@mui/icons-material/Chat";
 import Notifications from "@mui/icons-material/Notifications";
 
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <div className="navbarContainer">
       <div className="navbarLeft">
-        <span className="navbarLogo">CelebritySocial</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="navbarLogo">CelebritySocial</span>
+        </Link>
       </div>
       <div className="navbarMiddle">
         <div className="navbarSearch">
