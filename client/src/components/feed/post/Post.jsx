@@ -5,7 +5,7 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { format } from "timeago.js";
-
+import { Link } from "react-router-dom";
 function Post({ post }) {
   const [user, setUser] = useState({});
 
@@ -31,13 +31,15 @@ function Post({ post }) {
       <div className="postContainer">
         <div className="postTop">
           <div className="postTopLeft">
-            {user.profilePicture && (
-              <img
-                alt="postProfile"
-                className="postProfileImage"
-                src={PublicFolder + user.profilePicture}
-              />
-            )}
+            <Link to={`profile/${user.username}`}>
+              {user.profilePicture && (
+                <img
+                  alt="postProfile"
+                  className="postProfileImage"
+                  src={PublicFolder + user.profilePicture}
+                />
+              )}
+            </Link>
             <span className="postUserName">{user.username}</span>
             <span className="postDate">{format(post.createdAt)}</span>
           </div>

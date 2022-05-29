@@ -1,6 +1,23 @@
+import { useContext, useRef } from "react";
+import { loginCall } from "../../apiCalls";
 import "./Login.styles.css";
+import { AuthContext } from "../../context/AuthContext";
 
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 export default function Login() {
+  const email = useRef();
+  const password = useRef();
+  const { user, dispatch, isFetching, error } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    loginCall(
+      { email: email.current.value, password: password.current.value },
+      dispatch
+    );
+  };
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -12,15 +29,37 @@ export default function Login() {
           </span>
         </div>
         <div className="loginRight">
-          <div className="loginBox">
-            <input placeholder="Email" className="loginInput" />
-            <input placeholder="Password" className="loginInput" />
-            <button className="loginButton">Log In</button>
-            <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">
-              Create a New Account
+          <form className="loginBox" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              placeholder="Email"
+              className="loginInput"
+              required
+              ref={email}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              minLength="6"
+              className="loginInput"
+              ref={password}
+            />
+            <button className="loginButton">
+              {isFetching ? (
+                <Box className="loginLoadingMui" sx={{ display: "flex" }}>
+                  <CircularProgress color="warning" />
+                </Box>
+              ) : (
+                "Log In"
+              )}
             </button>
-          </div>
+            {!user && <span className="loginForgot">Forgot Password?</span>}
+
+            <button className="loginRegisterButton" disabled={isFetching}>
+              Create Account
+            </button>
+          </form>
         </div>
       </div>
     </div>

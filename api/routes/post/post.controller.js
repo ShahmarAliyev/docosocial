@@ -80,6 +80,16 @@ const httpGetFeed = async (req, res) => {
   }
 };
 
+const httpGetYourPosts = async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.params.username });
+    const posts = await Post.find({ userId: user._id });
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 module.exports = {
   httpCreatePost,
   httpUpdatePost,
@@ -87,4 +97,5 @@ module.exports = {
   httpLikePost,
   httpGetPost,
   httpGetFeed,
+  httpGetYourPosts,
 };

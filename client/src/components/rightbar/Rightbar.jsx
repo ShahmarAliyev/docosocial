@@ -50,7 +50,7 @@ export default function Rightbar({ profile }) {
         <div className="rightbarFollowings">
           {Users.map((user) => {
             return (
-              <div className="rightbarFollowing">
+              <div key={user.id} className="rightbarFollowing">
                 <img
                   src={PublicFolder + user.profilePicture}
                   alt=""
