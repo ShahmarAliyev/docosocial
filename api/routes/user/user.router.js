@@ -10,7 +10,7 @@ const {
 
 userRouter.put("/:id", httpUpdateUser);
 userRouter.delete("/:id", httpDeleteUser);
-userRouter.get("/:id", httpGetOneUser);
+userRouter.get("/", httpGetOneUser);
 userRouter.put("/:id/follow", httpFollowUser);
 userRouter.put("/:id/unfollow", httpUnFollowUser);
 

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useContext, useRef } from "react";
 import { loginCall } from "../../apiCalls";
 import "./Login.styles.css";
@@ -5,7 +6,11 @@ import { AuthContext } from "../../context/AuthContext";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import { Navigate } from "react-router-dom";
+
 export default function Login() {
+  const navigate = useNavigate();
+
   const email = useRef();
   const password = useRef();
   const { user, dispatch, isFetching, error } = useContext(AuthContext);
@@ -56,7 +61,14 @@ export default function Login() {
             </button>
             {!user && <span className="loginForgot">Forgot Password?</span>}
 
-            <button className="loginRegisterButton" disabled={isFetching}>
+            <button
+              type="button"
+              className="loginRegisterButton"
+              disabled={isFetching}
+              onClick={() => {
+                navigate("/register");
+              }}
+            >
               Create Account
             </button>
           </form>

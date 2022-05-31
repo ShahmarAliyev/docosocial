@@ -1,8 +1,12 @@
 import "./Rightbar.css";
 import { Users } from "../../data";
 import Online from "./online/Online";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
-export default function Rightbar({ profile }) {
+export default function Rightbar({ user }) {
+  const { user: currentUser } = useContext(AuthContext);
+
   const HomeRightbar = () => {
     return (
       <>
@@ -35,28 +39,30 @@ export default function Rightbar({ profile }) {
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">New York</span>
+            <span className="rightbarInfoValue">{currentUser.city}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">From:</span>
-            <span className="rightbarInfoValue">Madrid</span>
+            <span className="rightbarInfoValue">{currentUser.from}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">Single</span>
+            <span className="rightbarInfoValue">Married</span>
           </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
         <div className="rightbarFollowings">
-          {Users.map((user) => {
+          {currentUser.followers.map((follower) => {
             return (
-              <div key={user.id} className="rightbarFollowing">
+              <div key={follower} className="rightbarFollowing">
                 <img
-                  src={PublicFolder + user.profilePicture}
+                  src={PublicFolder + currentUser.profilePicture}
                   alt=""
                   className="rightbarFollowingImg"
                 />
-                <span className="rightbarFollowingName">{user.className}</span>
+                <span className="rightbarFollowingName">
+                  {currentUser.username}
+                </span>
               </div>
             );
           })}
@@ -68,7 +74,7 @@ export default function Rightbar({ profile }) {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        {profile ? <ProfileRightbar /> : <HomeRightbar />}
+        {user ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </div>
   );

@@ -1,21 +1,24 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import "./Feed.styles.css";
 import Post from "./post/Post";
 import Share from "./share/Share";
 
 export default function Feed({ username }) {
+  const { user } = useContext(AuthContext);
+
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       const res = username
         ? await axios.get("/posts/profile/" + username)
-        : await axios.get("/posts/timeline/62899e533322d995ba8bdd00");
+        : await axios.get("/posts/timeline/" + user._id);
       setPosts(res.data);
     };
     fetchPosts();
-  }, [username]);
+  }, [username, user._id]);
 
   return (
     <div className="feed">
@@ -23,7 +26,6 @@ export default function Feed({ username }) {
         <Share />
         {posts &&
           posts.map((post) => {
-            console.log(post);
             return <Post key={post._id} post={post} />;
           })}
       </div>

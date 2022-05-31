@@ -3,15 +3,19 @@ import PermMediaIcon from "@mui/icons-material/PermMedia";
 import Label from "@mui/icons-material/Label";
 import Room from "@mui/icons-material/Room";
 import EmojiEmotions from "@mui/icons-material/EmojiEmotions";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
 export default function Share() {
+  const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { user } = useContext(AuthContext);
   return (
     <div className="share">
       <div className="shareContainer">
         <div className="shareTop">
           <img
             className="shareImage"
-            src="/assets/profiles/profile.jpg"
+            src={PublicFolder + user.profilePicture}
             alt=""
           />
           <input

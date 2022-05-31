@@ -20,7 +20,7 @@ function App() {
       />
       <Route
         path="/profile/:username"
-        element={user ? <Navigate to="/register" /> : <Profile />}
+        element={user ? <Profile /> : <Navigate to="/register" />}
       />
     </Routes>
   );
