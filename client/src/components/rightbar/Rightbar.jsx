@@ -17,14 +17,16 @@ export default function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendsList = await axios.get("/users/friends/" + user._id);
+        const friendsList = await axios.get(
+          "/users/friends/" + currentUser?._id
+        );
         setFriends(friendsList.data);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       }
     };
     getFriends();
-  }, [user]);
+  }, [currentUser]);
 
   const handleClick = async () => {
     try {
