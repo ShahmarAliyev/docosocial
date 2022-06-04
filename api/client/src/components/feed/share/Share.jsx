@@ -7,6 +7,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
+
 export default function Share() {
   const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
   const { user } = useContext(AuthContext);
