@@ -18,7 +18,8 @@ export default function Rightbar({ user }) {
     const getFriends = async () => {
       try {
         const friendsList = await axios.get(
-          "/users/friends/" + currentUser?._id
+          "https://celebritysocial.herokuapp.com/api/users/friends/" +
+            currentUser?._id
         );
         setFriends(friendsList.data);
       } catch (error) {

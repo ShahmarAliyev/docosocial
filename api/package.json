@@ -4,6 +4,7 @@
   "description": "Social Media Backend",
   "scripts": {
     "start": "nodemon index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shahmar ALiyev",

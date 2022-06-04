@@ -11,6 +11,11 @@ const authRouter = require("./routes/auth/auth.router");
 const userRouter = require("./routes/user/user.router");
 const postRouter = require("./routes/post/post.router");
 
+app.use(express.static(path.join(__dirname, "/client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+});
+
 dotenv.config();
 
 const app = express();
