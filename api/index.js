@@ -11,14 +11,14 @@ const authRouter = require("./routes/auth/auth.router");
 const userRouter = require("./routes/user/user.router");
 const postRouter = require("./routes/post/post.router");
 
+dotenv.config();
+
+const app = express();
 app.use(express.static(path.join(__dirname, "/client/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/client/build", "index.html"));
 });
 
-dotenv.config();
-
-const app = express();
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, () => {
   console.log("Server connected to MongoDB");
 });
