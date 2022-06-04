@@ -21,12 +21,7 @@ export default function Register() {
     };
     try {
       await axios.post("http://localhost:8800/api/auth/register", user);
-      console.log("navstart");
-      navigate("/login");
-      console.log("navend");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const handleSubmit = async (e) => {
@@ -67,14 +62,14 @@ export default function Register() {
               className="loginInput"
               ref={password}
               required
-              // type="password"
+              type="password"
             />
             <input
               placeholder="Password Again"
               className="loginInput"
               ref={passwordAgain}
               required
-              // type="password"
+              type="password"
             />
             {error && <span className="loginError">Password don't match</span>}
             <button className="loginButton" type="submit">

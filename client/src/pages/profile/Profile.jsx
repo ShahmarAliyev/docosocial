@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Feed from "../../components/feed/Feed";
 import Leftbar from "../../components/leftbar/Leftbar";
@@ -28,21 +28,31 @@ export default function Profile() {
 
         <div className="profileRight">
           <div className="profileRightTop">
-            <div className="profileCover">
-              <img
-                alt="cover"
-                src={PublicFolder + user?.coverPicture}
-                className="profileCoverImage"
-              />
-              <img
-                alt="profile"
-                src={PublicFolder + user?.profilePicture}
-                className="profileProfileImage"
-              />
-            </div>
+            {user && (
+              <div className="profileCover">
+                <img
+                  alt="cover"
+                  src={
+                    user.profilePicture
+                      ? PublicFolder + user.profilePicture
+                      : PublicFolder + "posts/noCover.png"
+                  }
+                  className="profileCoverImage"
+                />
+                <img
+                  alt="profile"
+                  src={
+                    user.profilePicture
+                      ? PublicFolder + user.profilePicture
+                      : PublicFolder + "posts/noAvatar.png"
+                  }
+                  className="profileProfileImage"
+                />
+              </div>
+            )}
             <div className="profileInfo">
-              <h4 className="profileInfoName">Shahmar Aliyev</h4>
-              <span className="profileInfoDetails"> I am new</span>
+              <h4 className="profileInfoName"> {user.username}</h4>
+              <span className="profileInfoDetails">{user.desc}</span>
             </div>
           </div>
           <div className="profileRightBottom">

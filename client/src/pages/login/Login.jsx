@@ -6,14 +6,13 @@ import { AuthContext } from "../../context/AuthContext";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import { Navigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
 
   const email = useRef();
   const password = useRef();
-  const { user, dispatch, isFetching, error } = useContext(AuthContext);
+  const { user, dispatch, isFetching } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();

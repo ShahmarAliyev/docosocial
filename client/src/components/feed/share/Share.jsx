@@ -3,6 +3,7 @@ import PermMediaIcon from "@mui/icons-material/PermMedia";
 import Label from "@mui/icons-material/Label";
 import Room from "@mui/icons-material/Room";
 import EmojiEmotions from "@mui/icons-material/EmojiEmotions";
+import CancelIcon from "@mui/icons-material/Cancel";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
@@ -45,7 +46,11 @@ export default function Share() {
         <div className="shareTop">
           <img
             className="shareImage"
-            src={PublicFolder + user.profilePicture}
+            src={
+              user.profilePicture
+                ? PublicFolder + user.profilePicture
+                : PublicFolder + "posts/noAvatar.png"
+            }
             alt=""
           />
           <input
@@ -55,6 +60,16 @@ export default function Share() {
           />
         </div>
         <hr className="shareHr" />
+        {file && (
+          <div className="shareImgContainer">
+            <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
+            <CancelIcon
+              className="shareCancelImg"
+              onClick={() => setFile(null)}
+            />
+          </div>
+        )}
+
         <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
             <label htmlFor="file" className="shareOption">

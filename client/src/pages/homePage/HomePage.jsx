@@ -6,13 +6,13 @@ import Rightbar from "../../components/rightbar/Rightbar";
 
 export default function Homepage() {
   return (
-    <div>
+    <>
       <Navbar />
       <div className="homepageContainer">
         <Leftbar />
         <Feed />
         <Rightbar />
       </div>
-    </div>
+    </>
   );
 }

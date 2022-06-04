@@ -2,48 +2,48 @@ export const Users = [
   {
     id: 1,
     profilePicture: "profiles/profile.jpg",
-    username: "Shahmar Aliyev",
+    username: "shahmar",
   },
-  {
-    id: 2,
-    profilePicture: "profiles/kobe.jpg",
-    username: "Kobe Bryant",
-  },
-  {
-    id: 3,
-    profilePicture: "profiles/curry.jpg",
-    username: "Stephen Curry",
-  },
-  {
-    id: 4,
-    profilePicture: "profiles/4.jpg",
-    username: "Rihanna",
-  },
-  {
-    id: 5,
-    profilePicture: "profiles/5.jpg",
-    username: "Thomas Lewandowski",
-  },
-  {
-    id: 6,
-    profilePicture: "profiles/6.jpg",
-    username: "Kylian Mbappe",
-  },
-  {
-    id: 7,
-    profilePicture: "profiles/7.jpg",
-    username: "Dwayne Wade",
-  },
-  {
-    id: 8,
-    profilePicture: "profiles/8.jpg",
-    username: "Tom Hanks",
-  },
-  {
-    id: 9,
-    profilePicture: "profiles/9.jpg",
-    username: "J. F. Kennedy",
-  },
+  // {
+  //   id: 2,
+  //   profilePicture: "profiles/kobe.jpg",
+  //   username: "Kobe Bryant",
+  // },
+  // {
+  //   id: 3,
+  //   profilePicture: "profiles/curry.jpg",
+  //   username: "Stephen Curry",
+  // },
+  // {
+  //   id: 4,
+  //   profilePicture: "profiles/4.jpg",
+  //   username: "Rihanna",
+  // },
+  // {
+  //   id: 5,
+  //   profilePicture: "profiles/5.jpg",
+  //   username: "Thomas Lewandowski",
+  // },
+  // {
+  //   id: 6,
+  //   profilePicture: "profiles/6.jpg",
+  //   username: "Kylian Mbappe",
+  // },
+  // {
+  //   id: 7,
+  //   profilePicture: "profiles/7.jpg",
+  //   username: "Dwayne Wade",
+  // },
+  // {
+  //   id: 8,
+  //   profilePicture: "profiles/8.jpg",
+  //   username: "Tom Hanks",
+  // },
+  // {
+  //   id: 9,
+  //   profilePicture: "profiles/9.jpg",
+  //   username: "J. F. Kennedy",
+  // },
   {
     id: 10,
     profilePicture: "profiles/10.jpg",

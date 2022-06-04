@@ -42,12 +42,16 @@ function Post({ post }) {
       <div className="postContainer">
         <div className="postTop">
           <div className="postTopLeft">
-            <Link to={`profile/${user.username}`}>
-              {user.profilePicture && (
+            <Link to={`/profile/${user.username}`}>
+              {user.username && (
                 <img
                   alt="postProfile"
                   className="postProfileImage"
-                  src={PublicFolder + user.profilePicture}
+                  src={
+                    user.profilePicture
+                      ? PublicFolder + user.profilePicture
+                      : PublicFolder + "posts/noAvatar.png"
+                  }
                 />
               )}
             </Link>
@@ -60,7 +64,7 @@ function Post({ post }) {
         </div>
 
         <div className="postMiddle">
-          <span className="postText">{post.desc}</span>
+          <span className="postText">{post?.desc}</span>
           <img
             src={PublicFolder + post.img}
             alt="post"
