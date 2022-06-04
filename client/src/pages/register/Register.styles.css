@@ -48,8 +48,13 @@
   border: 1px solid gray;
   font-size: 18px;
   padding-left: 20px;
+  margin-bottom: 15px;
 }
 
+.loginError {
+  color: red;
+  margin-bottom: 5px;
+}
 .loginInput:focus {
   outline: none;
 }
@@ -71,6 +76,7 @@
 }
 
 .loginRegisterButton {
+  margin-top: 20px;
   width: 60%;
   align-self: center;
   height: 50px;
