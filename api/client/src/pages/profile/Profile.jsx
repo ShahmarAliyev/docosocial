@@ -37,7 +37,7 @@ export default function Profile() {
                   src={
                     user.profilePicture
                       ? PublicFolder + user.profilePicture
-                      : PublicFolder + "posts/noCover.png"
+                      : PublicFolder + "assets/posts/noCover.png"
                   }
                   className="profileCoverImage"
                 />
@@ -46,7 +46,7 @@ export default function Profile() {
                   src={
                     user.profilePicture
                       ? PublicFolder + user.profilePicture
-                      : PublicFolder + "posts/noAvatar.png"
+                      : PublicFolder + "assets/posts/noAvatar.png"
                   }
                   className="profileProfileImage"
                 />

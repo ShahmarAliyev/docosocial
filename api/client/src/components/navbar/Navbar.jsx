@@ -54,7 +54,7 @@ export default function Navbar() {
             src={
               user.profilePicture
                 ? PublicFolder + user.profilePicture
-                : PublicFolder + "posts/noAvatar.png"
+                : PublicFolder + "assets/posts/noAvatar.png"
             }
             className="profilePictureIcon"
           />

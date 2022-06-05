@@ -52,7 +52,7 @@ function Post({ post }) {
                   src={
                     user.profilePicture
                       ? PublicFolder + user.profilePicture
-                      : PublicFolder + "posts/noAvatar.png"
+                      : PublicFolder + "assets/posts/noAvatar.png"
                   }
                 />
               )}
