@@ -30,7 +30,10 @@ function Post({ post }) {
 
   const likeHandler = () => {
     try {
-      axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
+      axios.put(
+        "https://celebritysocial.herokuapp.com/api/posts/" + post._id + "/like",
+        { userId: currentUser._id }
+      );
     } catch (error) {}
 
     setLike(isLiked ? like - 1 : like + 1);
