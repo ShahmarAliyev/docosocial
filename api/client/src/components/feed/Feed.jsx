@@ -10,21 +10,21 @@ export default function Feed({ username }) {
 
   const [posts, setPosts] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchPosts = async () => {
-  //     const res = username
-  //       ? await axios.get(
-  //           "https://celebritysocial.herokuapp.com/api/posts/profile/" +
-  //             username
-  //         )
-  //       : await axios.get(
-  //           "https://celebritysocial.herokuapp.com/api/posts/timeline/" +
-  //             user._id
-  //         );
-  //     setPosts(res.data);
-  //   };
-  //   fetchPosts();
-  // }, [username, user._id]);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = username
+        ? await axios.get(
+            "https://celebritysocial.herokuapp.com/api/posts/profile/" +
+              username
+          )
+        : await axios.get(
+            "https://celebritysocial.herokuapp.com/api/posts/timeline/" +
+              user._id
+          );
+      setPosts(res.data);
+    };
+    fetchPosts();
+  }, [username, user._id]);
 
   return (
     <div className="feed">
